@@ -35,15 +35,20 @@ jobs:
       - name: Yarn Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
+
       - name: Run Coverage
         run: yarn test:unit
-      # - name: Run Coverage
-      #   uses: mattallty/jest-github-action@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.github_token }}
-      #   with:
-      #     # this is just an example, this could be any command that will trigger jest
-      #     test-command: "xvfb-run --auto-servernum yarn test:unit"
-      #     # Runs tests related to the changes since the base branch of your pull request
-      #     # Default to false if not set
-      #     changes-only: true
+
+      # - name: Run Cypress
+      #   run: yarn test:e2e -- --headless
+
+      - name: Post Coverage Results into PR
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          # this is just an example, this could be any command that will trigger jest
+          test-command: "xvfb-run --auto-servernum yarn test:unit"
+          # Runs tests related to the changes since the base branch of your pull request
+          # Default to false if not set
+          changes-only: true
