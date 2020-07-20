@@ -41,20 +41,23 @@ jobs:
 
       - name: Run Coverage
         run: yarn test:unit
-      - name: Cypress Install
-        run: npm install cypress
+        
+      - name: Run Coverage
+        run: yarn test:e2e -- --headless
+      # - name: Cypress Install
+      #   run: npm install cypress
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          start: yarn serve
-          wait-on: http://localhost:8087/
-          # config_file: cypress.json
-          spec: "tests/e2e/**/*"
-          browser: chrome
-          # headless: true
-        env:
-          CYPRESS_baseUrl: http://localhost:8087/
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     start: yarn serve
+      #     wait-on: http://localhost:8087/
+      #     # config_file: cypress.json
+      #     spec: "tests/e2e/**/*"
+      #     browser: chrome
+      #     # headless: true
+      #   env:
+      #     CYPRESS_baseUrl: http://localhost:8087/
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
