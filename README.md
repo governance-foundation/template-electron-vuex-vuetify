@@ -6,7 +6,7 @@
 yarn install
 ```
 
-## Web App
+## Web App Dev Commands
 
 To use this app in development cycles use following commands.
 
@@ -40,7 +40,7 @@ yarn test:e2e
 yarn lint
 ```
 
-## Electron
+## Electron Dev Commands
 
 To build and run your web app using electron use following commands.
 
@@ -56,12 +56,79 @@ yarn electron:serve
 yarn electron:build
 ```
 
+## Customize configuration
 
-### Customize configuration
+* See [Configuration Reference](https://cli.vuejs.org/config/).
+* Mac category [LSApplicationCategoryType](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8)
+* Update App Icons in `build` folder
+* Update App Details in `package.json`
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Pipelines
 
-### App Generation
+Following pipleines exist for compiling code as its commited
+
+* Build Branche (build.yml) - Build and Test all branches.
+* Build/release (build-master.yml) - Build, Test and Release master branch.
+* PR Coverage Report (pr-coverage.yml) - Run coverage on PR's and add coverage results into PR history.
+
+## Releasing
+
+When you want to create a new release, follow these steps:
+
+1. Update the version in your project's package.json file (e.g. `1.2.3`)
+2. Commit that change (`git commit -am v1.2.3`)
+3. Tag your commit (`git tag v1.2.3`). Make sure your tag name's format is `v*.*.*`. Your workflow will use this tag to detect when to create a release
+4. Push your changes to GitHub (git push && git push --tags)
+
+After building successfully, the action will publish your release artifacts. By default, a new release draft will be created on GitHub with download links for your app. If you want to change this behavior, have a look at the `electron-builder` docs.
+
+More info on setting up release pipline found here [action-electron-builder](https://github.com/samuelmeuli/action-electron-builder).
+
+## Build Config
+
+Electron build configuration is mainated in `vue.config.js` under following node:
+
+```json
+pluginOptions: {
+    electronBuilder: {
+        ...
+```
+
+For possible configuration optons refer to [electron.build](https://www.electron.build/configuration/configuration) docs.
+
+## Developer Windows WSL Setup
+
+### Get some soft
+
+* Install latest Powershell https://github.com/PowerShell/PowerShell/releases
+* Install proper terminal https://github.com/microsoft/terminal/releases
+
+### All Linux Version
+
+* Install pre-requsites `sudo apt update && sudo apt install -y git curlgcc g++ make`
+* Install node
+
+```bash
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y install nodejs
+```
+
+### Ubuntu
+
+* Install yarn `sudp apt install yarn`
+
+### Debian
+
+* Remove cmdtest `sudo apt-get remove cmdtest`
+* Install yarn
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install -y yarn
+```
+
+## App Generation
 
 To generate this app from sratch run the following
 
@@ -99,70 +166,9 @@ To generate this app from sratch run the following
     * In dedicated config files
 * Add Vuetify UI framework `vue add vuetify`
   * use `Default`
-* Update `tsconfig.json` 
+* Update `tsconfig.json`
   * add `vuetify` to `types[]`
 * Add Electron dev tools `yarn add @types/electron-devtools-installer --dev`
 * Add Electron to project `vue add electron-builder`
   * Latest Version
   * Add Spectron tests
-
-## Releasing
-
-When you want to create a new release, follow these steps:
-
-1. Update the version in your project's package.json file (e.g. `1.2.3`)
-2. Commit that change (`git commit -am v1.2.3`)
-3. Tag your commit (`git tag v1.2.3`). Make sure your tag name's format is `v*.*.*`. Your workflow will use this tag to detect when to create a release
-4. Push your changes to GitHub (git push && git push --tags)
-
-After building successfully, the action will publish your release artifacts. By default, a new release draft will be created on GitHub with download links for your app. If you want to change this behavior, have a look at the `electron-builder` docs.
-
-More info on setting up release pipline found here [action-electron-builder](https://github.com/samuelmeuli/action-electron-builder).
-
-## App Config
-
-* Mac category [LSApplicationCategoryType](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8)
-
-## Build Config
-
-Electron build configuration is mainated in `vue.config.js` under following node:
-
-```json
-pluginOptions: {
-    electronBuilder: {
-        ...
-```
-
-For possible configuration optons refer to [electron.build](https://www.electron.build/configuration/configuration) docs.
-
-## Windows WSL Setup
-
-### Get some soft
-
-* Install latest Powershell https://github.com/PowerShell/PowerShell/releases
-* Install proper terminal https://github.com/microsoft/terminal/releases
-
-### All Linux Version
-
-* Install pre-requsites `sudo apt update && sudo apt install -y git curlgcc g++ make`
-* Install node
-
-```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt -y install nodejs
-```
-
-### Ubuntu
-
-* Install yarn `sudp apt install yarn`
-
-### Debian
-
-* Remove cmdtest `sudo apt-get remove cmdtest`
-* Install yarn
-
-```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install -y yarn
-```
