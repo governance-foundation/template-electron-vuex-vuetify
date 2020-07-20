@@ -80,6 +80,7 @@ To generate this app from sratch run the following
   * use `Default`
 * Update `tsconfig.json` 
   * add `vuetify` to `types[]`
+* Add Electron dev tools `yarn add @types/electron-devtools-installer --dev`
 * Add Electron to project `vue add electron-builder`
   * Latest Version
   * Add Spectron tests
