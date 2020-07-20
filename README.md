@@ -6,6 +6,10 @@
 yarn install
 ```
 
+## Web App
+
+To use this app in development cycles use following commands.
+
 ### Compiles and hot-reloads for development
 
 ```bash
@@ -35,6 +39,23 @@ yarn test:e2e
 ```bash
 yarn lint
 ```
+
+## Electron
+
+To build and run your web app using electron use following commands.
+
+### Compiles and hot-reloads for development
+
+```bash
+yarn electron:serve
+```
+
+### Compiles and minifies for production
+
+```bash
+yarn electron:build
+```
+
 
 ### Customize configuration
 
