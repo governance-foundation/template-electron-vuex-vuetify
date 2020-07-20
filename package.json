@@ -1,11 +1,15 @@
 {
   "name": "template-electron-vuex-vuetify",
+  "description": "Description",
+  "productName": "Product Name",
+  "author": "Max Barrass <max.barrass@gmail.com>",
   "version": "0.1.0",
+  "license": "License",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --coverage --json --outputFile=jest.results.json --testTimeout=300000",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "electron:build": "vue-cli-service electron:build",
