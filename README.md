@@ -172,3 +172,5 @@ To generate this app from sratch run the following
 * Add Electron to project `vue add electron-builder`
   * Latest Version
   * Add Spectron tests
+* Add missing node types `yarn add @types/node@12 --dev`
+* Update electron to latest version `yarn upgrade electron`
