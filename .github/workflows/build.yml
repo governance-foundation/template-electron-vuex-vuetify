@@ -43,5 +43,10 @@ jobs:
       - name: Run Coverage
         run: yarn test:unit
 
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Cypress
         run: yarn test:e2e -- --headless
