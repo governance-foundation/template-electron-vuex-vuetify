@@ -13,12 +13,12 @@ module.exports = {
         mac: {
           category: "public.app-category.productivity"
         },
-        linux: {
-          category: "Development"
-        },
         deb: {
           packageCategory: "devel"
         }
+      },
+      linux: {
+        category: "Development"
       }
     }
   }
