@@ -36,9 +36,23 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-yarn-
 
-      - name: Yarn Install
+      - name: Run Install
         # if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install
+        run: |
+          yarn install
+
+      - name: Setup Xvfb
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          apt install -y xvfb
+          export DISPLAY=:99.0
+          Xvfb &
+          sleep 3
+          # Install display server dependencies
+          apt install xvfb libxtst6 libxss1 libgtk2.0-0 -y"
+          # Install core libraries for chromium driver
+          apt install libnss3 libasound2 libgconf-2-4 -y"
+          export {no_proxy,NO_PROXY}="127.0.0.1,localhost"
 
       - name: Run Coverage
         run: yarn test:unit
