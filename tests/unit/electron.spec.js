@@ -7,7 +7,14 @@ import { testWithSpectron } from "vue-cli-plugin-electron-builder";
 test("Window Loads Properly", async () => {
   // Wait for dev server to start
   const { app, stopServe } = await testWithSpectron(spectron, {
-    chromeDriverArgs: ["--remote-debugging-port=12209"]
+    chromeDriverArgs: [
+      // "--remote-debugging-port=9222",
+      // "--headless",
+      // "--enable-automation",
+      // "--no-sandbox",
+      // "--disable-popup-blocking",
+      // "--user-data-dir=./.chrome-user-data"
+    ]
   });
   const win = app.browserWindow;
   const client = app.client;
