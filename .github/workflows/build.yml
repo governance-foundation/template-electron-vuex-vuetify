@@ -55,7 +55,7 @@ jobs:
       #     export {no_proxy,NO_PROXY}="127.0.0.1,localhost"
 
       - name: Run Coverage
-        run: yarn test:unit
+        run: yarn test:unit -- --headless
 
       - name: Push to Coveralls
         uses: coverallsapp/github-action@master
