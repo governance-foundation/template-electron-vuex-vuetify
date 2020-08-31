@@ -62,7 +62,7 @@ jobs:
           sleep 3
 
       - name: Run Coverage
-        run: yarn test:unit
+        run: yarn test:unit2
 
       - name: Push to Coveralls
         uses: coverallsapp/github-action@master
