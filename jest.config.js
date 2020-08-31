@@ -8,7 +8,7 @@ module.exports = {
     "!<rootDir>/src/plugins/**",
     "!<rootDir>/tests/unit/**"
   ],
-  coverageReporters: ["json", "text", "cobertura"],
+  coverageReporters: ["json", "lcov", "text", "cobertura"],
   snapshotSerializers: ["jest-serializer-vue"],
   preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
 };
