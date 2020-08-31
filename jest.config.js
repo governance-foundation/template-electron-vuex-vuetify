@@ -1,4 +1,5 @@
 module.exports = {
+  moduleFileExtensions: ["js", "json", "ts", "vue"],
   collectCoverage: true,
   collectCoverageFrom: [
     "**/*.{vue,ts,js}",
@@ -7,6 +8,7 @@ module.exports = {
     "!<rootDir>/src/plugins/**",
     "!<rootDir>/tests/unit/**"
   ],
-  coverageReporters: ["json", "lcov", "text-summary"],
+  coverageReporters: ["json", "text", "cobertura"],
+  snapshotSerializers: ["jest-serializer-vue"],
   preset: "@vue/cli-plugin-unit-jest/presets/typescript-and-babel"
 };
