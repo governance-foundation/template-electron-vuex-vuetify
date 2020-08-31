@@ -10,7 +10,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --forceExit --detectOpenHandles",
-    "test:unit2": "cross-env IS_TEST=1 ELECTRON_NO_ATTACH_CONSOLE=1 xvfb-maybe --auto-servernum -- jest --testLocationInResults --config ./jest.config.js",
+    "test:unitci": "cross-env IS_TEST=1 ELECTRON_NO_ATTACH_CONSOLE=1 xvfb-maybe --auto-servernum -- jest --testLocationInResults --config ./jest.config.js",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "electron:build": "vue-cli-service electron:build",
