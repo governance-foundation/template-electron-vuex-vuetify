@@ -9,7 +9,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit --forceExit --detectOpenHandles",
+    "test:unitci": "cross-env IS_TEST=1 ELECTRON_NO_ATTACH_CONSOLE=1 xvfb-maybe --auto-servernum -- jest --testLocationInResults --detectOpenHandles --forceExit --config ./jest.config.js",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "electron:build": "vue-cli-service electron:build",
@@ -47,19 +48,26 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^1.0.3",
     "coveralls": "^3.1.0",
+    "cross-env": "^7.0.2",
     "electron": "^9.1.0",
     "electron-devtools-installer": "^3.1.1",
+    "electron-winstaller": "^4.0.1",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
+    "execa": "^4.0.3",
+    "jest-jasmine2": "^26.1.0",
+    "jest-puppeteer": "^4.4.0",
+    "jest-serializer-vue": "^2.0.2",
     "prettier": "^1.19.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "spectron": "^11.0.0",
+    "spectron": "^11.1.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
     "vue-cli-plugin-vuetify": "~2.0.6",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.3.0"
+    "vuetify-loader": "^1.3.0",
+    "xvfb-maybe": "^0.2.1"
   }
 }
