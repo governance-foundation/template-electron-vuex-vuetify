@@ -14,21 +14,14 @@ jobs:
     strategy:
       matrix:
         node: [14.9.0]
-        # os: [macos-latest, ubuntu-latest, windows-latest]
-        # os: [ubuntu-latest, macos-10.15, windows-2019]
-        # os: [ubuntu-latest]
-        os: [windows-latest]
+        os: [macos-latest, ubuntu-latest, windows-latest]
         include:
-          # - os: ubuntu-latest
-          #   friendlyName: Ubuntu
-          # - os: macos-latest
-          #   friendlyName: MacOS
+          - os: ubuntu-latest
+            friendlyName: Ubuntu
+          - os: macos-latest
+            friendlyName: MacOS
           - os: windows-latest
             friendlyName: Windows
-        #   - os: macos-10.15
-        #     friendlyName: macOS
-        #   - os: windows-2019
-        #     friendlyName: Windows
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
