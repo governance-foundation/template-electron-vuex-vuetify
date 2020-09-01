@@ -85,9 +85,9 @@ Following pipleines exist for compiling code as its commited
 
 When you want to create a new release, follow these steps:
 
-1. Update the version in your project's package.json file (e.g. `2020.09.011`)
-2. Commit that change (`git commit -am 2020.09.011`)
-3. Tag your commit (`git tag "2020.09.011"`).
+1. Update the version in your project's package.json file (e.g. `2020.09.01`)
+2. Commit that change (`git commit -am 2020.09.01`)
+3. Tag your commit (`git tag "2020.09.01"`).
 4. Push your changes to GitHub (`git push && git push --tags`)
 
 After building successfully, the action will publish your release artifacts. By default, a new release draft will be created on GitHub with download links for your app. If you want to change this behavior, have a look at the `electron-builder` docs.

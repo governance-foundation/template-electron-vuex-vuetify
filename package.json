@@ -3,7 +3,7 @@
   "description": "Description",
   "productName": "Product Name",
   "author": "Max Barrass <max.barrass@gmail.com>",
-  "version": "2020.09.011",
+  "version": "2020.09.01",
   "license": "License",
   "private": true,
   "scripts": {
