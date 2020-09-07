@@ -1,6 +1,6 @@
 # template-electron-vuex-vuetify
 
-[![build_status](https://github.com/governance-foundation/template-electron-vuex-vuetify/workflows/Build/release/badge.svg)](https://github.com/governance-foundation/template-electron-vuex-vuetify/actions?workflow=Build/release)
+[![build_status](https://github.com/governance-foundation/template-electron-vuex-vuetify/workflows/build-release/badge.svg)](https://github.com/governance-foundation/template-electron-vuex-vuetify/actions?workflow=Build/release)
 [![Coverage Status](https://coveralls.io/repos/github/governance-foundation/template-electron-vuex-vuetify/badge.svg?branch=master)](https://coveralls.io/github/governance-foundation/template-electron-vuex-vuetify?branch=master)
 [![github license](https://img.shields.io/github/license/governance-foundation/template-electron-vuex-vuetify)](https://github.com/governance-foundation/template-electron-vuex-vuetify) 
 [![github issues](https://img.shields.io/github/issues/governance-foundation/template-electron-vuex-vuetify)](https://github.com/governance-foundation/template-electron-vuex-vuetify) 
