@@ -20,9 +20,13 @@
           width="100"
         />
       </div>
+      <!-- <h1>hii</h1> -->
 
       <v-spacer></v-spacer>
-
+      <!-- <Language></Language> -->
+<!-- <v-row justify="center"> -->
+           
+        <!-- </v-row> -->
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -31,10 +35,14 @@
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
+      <!-- <Language></Language> -->
     </v-app-bar>
 
     <v-main>
       <HelloWorld />
+      <!-- <h1>{{ $t('hello') }}</h1>
+    <h1>{{ $t('welcome',{name:"Suresh Ramani"}) }}</h1> -->
+      <!-- <Language></Language> -->
     </v-main>
   </v-app>
 </template>
@@ -42,12 +50,14 @@
 <script lang="ts">
 import Vue from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
+// import Language from "../src/components/HelloWorld.vue"
 
 export default Vue.extend({
   name: "App",
 
   components: {
-    HelloWorld
+    HelloWorld,
+  //  Language
   },
 
   data: () => ({
