@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import { i18n } from '../main'
 
 Vue.use(VueRouter);
 
@@ -27,9 +26,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-router.beforeEach((to, from, next) => {
-  i18n.locale = localStorage.getItem('language') || 'en'
-  return next()
-})
 
 export default router;

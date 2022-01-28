@@ -21,20 +21,14 @@
           <a href="https://community.vuetifyjs.com" target="_blank"
             >Discord Community</a
           >
-         
         </p>
-         <h3>{{ $t('hello') }}</h3>
-    <h3>{{ $t('welcome',{name:"Suresh Ramani"}) }}</h3>
       </v-col>
 
       <v-col class="mb-5" cols="12">
-         
         <h2 class="headline font-weight-bold mb-3">
           What's next?
         </h2>
-  <v-row justify="center">
-           <Language></Language>
-        </v-row>
+
         <v-row justify="center">
           <a
             v-for="(next, i) in whatsNext"
@@ -52,7 +46,6 @@
         <h2 class="headline font-weight-bold mb-3">
           Important Links
         </h2>
-       
 
         <v-row justify="center">
           <a
@@ -83,7 +76,6 @@
             {{ eco.text }}
           </a>
         </v-row>
-        
       </v-col>
     </v-row>
   </v-container>
@@ -91,14 +83,9 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Language from '../components/Language.vue'
 
 export default Vue.extend({
   name: "HelloWorld",
-  components: {
-   
-    Language
-  },
 
   data: () => ({
     ecosystem: [
