@@ -55,7 +55,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
-    "execa": "^4.0.3",
+    "execa": "^6.1.0",
     "jest-jasmine2": "^26.1.0",
     "jest-puppeteer": "^4.4.0",
     "jest-serializer-vue": "^2.0.2",
