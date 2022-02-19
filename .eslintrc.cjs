@@ -1,7 +1,11 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution");
+
 module.exports = {
   root: true,
   env: {
     node: true,
+    "vue/setup-compiler-macros": true,
   },
   extends: [
     "plugin:vue/vue3-essential",
@@ -19,13 +23,11 @@ module.exports = {
   },
   overrides: [
     {
+      extends: ["plugin:cypress/recommended"],
       files: [
+        "cypress/integration/**.spec.{js,ts,jsx,tsx}",
         "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)",
       ],
-      env: {
-        jest: true,
-      },
     },
   ],
 };
