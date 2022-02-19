@@ -30,6 +30,11 @@ export default defineConfig({
       ".scss",
     ],
   },
+  test: {
+    deps: {
+      inline: [/\.css$/],
+    },
+  },
   /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions
   resolve: {
     extensions: [
