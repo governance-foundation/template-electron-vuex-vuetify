@@ -73,6 +73,7 @@
     "prettier": "^2.4.1",
     "sass": "^1.38.0",
     "sass-loader": "^12.0.0",
+    "simple-git-hooks": "^2.7.0",
     "start-server-and-test": "^1.14.0",
     "stylelint": "^14.5.1",
     "stylelint-config-recommended": "^7.0.0",
@@ -86,10 +87,9 @@
     "vuetify-loader": "^2.0.0-alpha.0",
     "wait-on": "^6.0.1"
   },
-  "gitHooks": {
-    "hooks": {
-      "pre-commit": "npx lint-staged"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "pre-push": ""
   },
   "lint-staged": {
     "*.{ts,vue}": "eslint --fix",
