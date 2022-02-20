@@ -66,8 +66,9 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "husky": "^7.0.4",
     "jsdom": "^19.0.0",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "sass": "^1.38.0",
     "sass-loader": "^12.0.0",
@@ -81,8 +82,13 @@
     "vuetify-loader": "^2.0.0-alpha.0",
     "wait-on": "^6.0.1"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix"
   },
   "build": {
     "appId": "foundation.governance.template-electron-vuex-vuetify",
