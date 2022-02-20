@@ -13,6 +13,7 @@ function createWindow() {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
     },
+    title: require("../package.json").electronWindowTitle,
   });
 
   // and load the index.html of the app.
