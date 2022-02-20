@@ -1,6 +1,6 @@
 # template-electron-vuex-vuetify
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing Electron app using Vue 3, Vite, Vuex and Vuetify.
 
 ## Recommended IDE Setup
 
@@ -41,6 +41,8 @@ npm run build
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
+NOTE: this does not work yet, feel free to contribute.
+
 ```sh
 npm run test:unit
 ```
@@ -56,4 +58,20 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 
 ```sh
 npm run lint
+```
+
+### Electron Dev
+
+Run development server and electron UI.
+
+```sh
+npm run electron:dev
+```
+
+### Build Electron Dist
+
+Compile installable Electron packages.
+
+```sh
+npm run app:build
 ```
