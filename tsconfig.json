@@ -1,20 +1,28 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  // "compilerOptions": {
+  //   "baseUrl": ".",
+  //   "paths": {
+  //     "@/*": ["./src/*"]
+  //   }
+  // },
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
-    "importHelpers": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest",
-      "vuetify"
+      "vite/client"
     ],
     "paths": {
       "@/*": [
@@ -29,13 +37,21 @@
     ]
   },
   "include": [
+    "env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/__tests__/*",
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.vite-config.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
   ]
 }

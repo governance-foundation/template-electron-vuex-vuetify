@@ -10,61 +10,82 @@
 [![Gitter](https://img.shields.io/badge/forum-Google-orange)](https://groups.google.com/forum/#!forum/governance-foundation)
 
 
-## Project setup
+This template should help get you started developing Electron app using Vue 3, Vite, Vuex and Vuetify.
 
-```bash
-yarn install
+## Recommended IDE Setup
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
 ```
 
-## Web App Dev Commands
+### Compile and Hot-Reload for Development
 
-To use this app in development cycles use following commands.
-
-### Compiles and hot-reloads for development
-
-```bash
-yarn serve
+```sh
+npm run dev
 ```
 
-### Compiles and minifies for production
+### Type-Check, Compile and Minify for Production
 
-```bash
-yarn build
+```sh
+npm run build
 ```
 
-### Run your unit tests
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-```bash
-yarn test:unit
+NOTE: this does not work yet, feel free to contribute.
+
+```sh
+npm run test:unit
 ```
 
-### Run your end-to-end tests
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
 
-```bash
-yarn test:e2e
+```sh
+npm run build
+npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 ```
 
-### Lints and fixes files
+### Lint with [ESLint](https://eslint.org/)
 
-```bash
-yarn lint
+```sh
+npm run lint
 ```
 
-## Electron Dev Commands
+### Electron Dev
 
-To build and run your web app using electron use following commands.
+Run development server and electron UI.
 
-### Compiles and hot-reloads for development
-
-```bash
-yarn electron:serve
+```sh
+npm run electron:dev
 ```
 
-### Compiles and minifies for production
+### Build Electron Dist
 
-```bash
-yarn electron:build
+Compile installable Electron packages.
+
+```sh
+npm run app:build
 ```
+
 
 ## Customize configuration
 
@@ -77,70 +98,23 @@ yarn electron:build
 
 Following pipleines exist for compiling code as its commited
 
-* Build Branche (build.yml) - Build and Test all branches.
-* Build/release (build-master.yml) - Build, Test and Release master branch.
-* PR Coverage Report (pr-coverage.yml) - Run coverage on PR's and add coverage results into PR history.
+* Build Branche (build.yml) - Build and Test all branches and create releases.
 
 ## Releasing
 
 When you want to create a new release, follow these steps:
 
-1. Update the version in your project's package.json file (e.g. `1.2.3`)
-2. Commit that change (`git commit -am v1.2.3`)
-3. Tag your commit (`git tag v1.2.3`). Make sure your tag name's format is `v*.*.*`. Your workflow will use this tag to detect when to create a release
+1. Update the version in your project's package.json file (e.g. `2022.02.20`)
+2. Commit and sign that change (`git commit -s -a -m "chore: release v2022.02.20"`)
+3. Tag and sign your commit (`git tag -s -a v2022.02.20 -m "v2022.02.20"`). Make sure your tag name's format is `v{YYYY}.{MM}.{DD}`. Your workflow will use this tag to detect when to create a release
 4. Push your changes to GitHub (git push && git push --tags)
 
-After building successfully, the action will publish your release artifacts. By default, a new release draft will be created on GitHub with download links for your app. If you want to change this behavior, have a look at the `electron-builder` docs.
-
-More info on setting up release pipline found here [action-electron-builder](https://github.com/samuelmeuli/action-electron-builder).
-
-## Build Config
-
-Electron build configuration is mainated in `vue.config.js` under following node:
-
-```json
-pluginOptions: {
-    electronBuilder: {
-        ...
-```
-
-For possible configuration optons refer to [electron.build](https://www.electron.build/configuration/configuration) docs.
-
-## Developer Windows WSL Setup
-
-### Get some soft
-
-* Install latest Powershell https://github.com/PowerShell/PowerShell/releases
-* Install proper terminal https://github.com/microsoft/terminal/releases
-
-### All Linux Version
-
-* Install pre-requsites `sudo apt update && sudo apt install -y git curlgcc g++ make`
-* Install node
-
-```bash
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt -y install nodejs
-```
-
-### Ubuntu
-
-* Install yarn `sudp apt install yarn`
-
-### Debian
-
-* Remove cmdtest `sudo apt-get remove cmdtest`
-* Install yarn
-
-```bash
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install -y yarn
-```
 
 ## App Generation
 
-To generate this app from sratch run the following
+To generate this app from sratch run the following:
+
+### Part 1 - Automated
 
 * Install Vue globally - `npm install -g @vue/cli`
 * Create Vue App `vue create template-electron-vuex-vuetify`
@@ -176,11 +150,27 @@ To generate this app from sratch run the following
     * In dedicated config files
 * Add Vuetify UI framework `vue add vuetify`
   * use `Default`
-* Update `tsconfig.json`
-  * add `vuetify` to `types[]`
-* Add Electron dev tools `yarn add @types/electron-devtools-installer --dev`
-* Add Electron to project `vue add electron-builder`
-  * Latest Version
-  * Add Spectron tests
-* Add missing node types `yarn add @types/node@12 --dev`
-* Update electron to latest version `yarn upgrade electron`
+
+### Part 2 - Manual steps
+
+* Remove Jest, will be replaced by [Vitest](https://vitest.dev/)
+  * remove test folder
+  * remove dependencies
+
+```sh
+npm remove @types/jest jest ts-jest @vue/vue3-jest @vue/cli-plugin-unit-jest babel-jest @vue/cli-plugin-babel
+```
+
+* Create [Vite template](https://vitejs.dev/guide/#trying-vite-online) for copying Vite config
+  * create blank vite-vue app `npm create vite@latest my-vue-app -- --template vue`
+  * copy accross folders `cypress` and `.vscode`
+  * copy acresss all the conig files
+
+* Add Electron, Vitest and Vite
+  * add configs `package.json`, `vite.config.ts`, `electron.js` and `electron/preload.js` follow this [Vite + Vue 3 + electron + TypeScript](https://dev.to/brojenuel/vite-vue-3-electron-5h4o) 
+  * add dependencies
+
+```sh
+npm install vitest vue-tsc jsdom start-server-and-test @types/jsdom @types/node @vue/tsconfig @rushstack/eslint-patch @vitejs/plugin-vue concurrently cross-env electron electron-builder wait-on @types/electron-devtools-installer vite --save-dev
+```
+
