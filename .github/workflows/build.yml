@@ -63,10 +63,10 @@ jobs:
       # - name: Run Unit Test with Coverage
       #   run: npm run test:unit
 
-      - name: Push to Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Push to Coveralls
+      #   uses: coverallsapp/github-action@master
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Cypress
         run: npm run test:e2e:ci
