@@ -13,7 +13,7 @@ export default defineConfig({
     {
       name: "vitest-plugin-beforeall",
       config: () => ({
-        test: { setupFiles: ["./vitest.beforeall.ts"] },
+        test: { setupFiles: ["./vitest/beforeall.ts"] },
       }),
     },
     vue(),
@@ -41,7 +41,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    globalSetup: ["./vitest.setup.ts"],
+    globalSetup: ["./vitest/setup.ts"],
     environment: "jsdom",
     deps: {
       inline: ["vuetify"],
