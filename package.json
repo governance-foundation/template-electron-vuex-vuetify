@@ -9,7 +9,7 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "test:unit": "vitest",
-    "test:e2e": "start-server-and-test preview http://localhost:5050/ 'cypress open'",
+    "test:e2e": "start-server-and-test preview http://0.0.0.0:5050/ 'cypress open'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "dev": "vite",
     "electron": "wait-on tcp:3000 && cross-env NODE_ENV=dev electron .",
@@ -21,7 +21,7 @@
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
     "preview": "vite preview --port 5050 --host",
-    "test:e2e:ci": "start-server-and-test preview http://localhost:5050/ 'cypress run'",
+    "test:e2e:ci": "start-server-and-test preview http://0.0.0.0:5050/ 'cypress run'",
     "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "main": "electron/electron.js",
