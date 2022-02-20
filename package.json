@@ -13,7 +13,7 @@
     "dev": "vite",
     "electron": "wait-on tcp:3000 && cross-env NODE_ENV=dev electron .",
     "electron:pack": "electron-builder --dir",
-    "electron:dev": "concurrently -k \"cross-env BROWSER=none yarn dev\" \"yarn electron\"",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
     "electron:builder": "electron-builder",
     "build:for:electron": "vue-tsc --noEmit && cross-env ELECTRON=true vite build",
     "app:build": "npm run build:for:electron && npm run electron:builder",
