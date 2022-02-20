@@ -4,7 +4,7 @@
   "productName": "Product Name",
   "productAppId": "appId",
   "author": "Max Barrass <max.barrass@gmail.com>",
-  "version": "2022.02.14",
+  "version": "2022.02.20",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "test:unit": "vitest --environment jsdom",
