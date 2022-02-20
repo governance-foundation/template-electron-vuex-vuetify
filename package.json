@@ -3,6 +3,7 @@
   "description": "Description",
   "productName": "Product Name",
   "productAppId": "appId",
+  "electronWindowTitle": "Electron App",
   "author": "Max Barrass <max.barrass@gmail.com>",
   "version": "2022.02.20",
   "scripts": {
@@ -58,7 +59,7 @@
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "cypress": "^8.3.0",
-    "electron": "^13.6.9",
+    "electron": "^17.0.1",
     "electron-builder": "^22.14.13",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^7.32.0",
