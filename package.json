@@ -8,7 +8,7 @@
   "version": "2022.02.20",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
-    "test:unit": "vitest --environment jsdom",
+    "test:unit": "vitest",
     "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "dev": "vite",
@@ -30,7 +30,7 @@
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
     "roboto-fontface": "*",
-    "vue": "^3.2.13",
+    "vue": "^3.2.31",
     "vue-router": "^4.0.12",
     "vuetify": "^3.0.0-alpha.0",
     "vuex": "^4.0.0",

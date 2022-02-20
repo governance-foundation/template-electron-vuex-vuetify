@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vuetify from "@vuetify/vite-plugin";
@@ -8,6 +10,12 @@ import { fileURLToPath, URL } from "url";
 export default defineConfig({
   base: process.env.ELECTRON == "true" ? "./" : "",
   plugins: [
+    {
+      name: "vitest-plugin-beforeall",
+      config: () => ({
+        test: { setupFiles: ["./vitest.beforeall.ts"] },
+      }),
+    },
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
@@ -32,6 +40,9 @@ export default defineConfig({
     ],
   },
   test: {
+    globals: true,
+    globalSetup: ["./vitest.setup.ts"],
+    environment: "jsdom",
     deps: {
       inline: ["vuetify"],
     },

@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "vite/client"
+      "vite/client",
+      "vitest/globals"
     ],
     "paths": {
       "@/*": [
