@@ -6,7 +6,7 @@ import { fileURLToPath, URL } from "url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.ELECTRON == "true" ? "./" : ".",
+  base: process.env.ELECTRON == "true" ? "./" : "",
   plugins: [
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
