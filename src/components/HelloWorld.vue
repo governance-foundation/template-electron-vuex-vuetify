@@ -37,7 +37,7 @@
             :key="i"
             :href="next.href"
             class="subheading mx-3"
-            target="_blank"
+            target="_new"
           >
             {{ next.text }}
           </a>

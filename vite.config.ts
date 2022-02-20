@@ -6,6 +6,7 @@ import { fileURLToPath, URL } from "url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: process.env.ELECTRON == "true" ? "./" : ".",
   plugins: [
     vue(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
@@ -32,7 +33,7 @@ export default defineConfig({
   },
   test: {
     deps: {
-      inline: [/\.css$/],
+      inline: ["vuetify"],
     },
   },
   /* remove the need to specify .vue files https://vitejs.dev/config/#resolve-extensions

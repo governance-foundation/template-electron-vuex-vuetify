@@ -1,16 +1,29 @@
 {
   "name": "template-electron-vuex-vuetify",
-  "version": "0.1.0",
+  "description": "Description",
+  "productName": "Product Name",
+  "productAppId": "appId",
+  "author": "Max Barrass <max.barrass@gmail.com>",
+  "version": "2022.02.14",
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview --port 5050",
     "test:unit": "vitest --environment jsdom",
     "test:e2e": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress open'",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "dev": "vite",
+    "electron": "wait-on tcp:3000 && cross-env NODE_ENV=dev electron .",
+    "electron:pack": "electron-builder --dir",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none yarn dev\" \"yarn electron\"",
+    "electron:builder": "electron-builder",
+    "build:for:electron": "vue-tsc --noEmit && cross-env ELECTRON=true vite build",
+    "app:build": "npm run build:for:electron && npm run electron:builder",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "preview": "vite preview --port 5050",
     "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'",
-    "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
+  "main": "electron/electron.js",
   "dependencies": {
     "@mdi/font": "5.9.55",
     "core-js": "^3.8.3",
@@ -24,6 +37,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
+    "@types/electron-devtools-installer": "^2.2.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^17.0.18",
     "@types/webfontloader": "^1.0.0",
@@ -41,7 +55,12 @@
     "@vue/test-utils": "^2.0.0-0",
     "@vue/tsconfig": "^0.1.3",
     "@vuetify/vite-plugin": "^1.0.0-alpha.3",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "cypress": "^8.3.0",
+    "electron": "^13.6.9",
+    "electron-builder": "^22.14.13",
+    "electron-devtools-installer": "^3.1.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -55,11 +74,35 @@
     "typescript": "~4.5.5",
     "vite": "^2.7.13",
     "vitest": "^0.4.1",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-cli-plugin-vuetify": "~2.4.5",
     "vue-tsc": "^0.31.4",
-    "vuetify-loader": "^2.0.0-alpha.0"
+    "vuetify-loader": "^2.0.0-alpha.0",
+    "wait-on": "^6.0.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "build": {
+    "appId": "foundation.governance.template-electron-vuex-vuetify",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "deb": {
+      "packageCategory": "devel"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    }
   }
 }
