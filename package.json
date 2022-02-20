@@ -86,7 +86,7 @@
   },
   "build": {
     "appId": "foundation.governance.template-electron-vuex-vuetify",
-    "copyright": "Copyright © 2019 ${author}",
+    "copyright": "Copyright © 2022 ${author}",
     "mac": {
       "category": "public.app-category.utilities"
     },
@@ -102,7 +102,7 @@
       "electron/**/*"
     ],
     "directories": {
-      "buildResources": "assets",
+      "buildResources": "electron/assets",
       "output": "dist_electron"
     }
   }
