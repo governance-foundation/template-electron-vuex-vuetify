@@ -9,8 +9,29 @@
 [![Gitter](https://badges.gitter.im/governance-foundation/community.svg)](https://gitter.im/governance-foundation/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Gitter](https://img.shields.io/badge/forum-Google-orange)](https://groups.google.com/forum/#!forum/governance-foundation)
 
+## Overview
 
-This template should help get you started developing Electron app using Vue 3, Vite, Vuex and Vuetify.
+This template should help get you started developing `Electron` app using `Vue 3`, `Vite`, `Vuex` and `Vuetify`, and friends.
+
+## Main Window
+
+<img width="400px" src="https://raw.githubusercontent.com/governance-foundation/template-electron-vuex-vuetify/master/public/assets/electron-app.png" />
+
+## Run Setup
+
+```sh
+# clone the project
+git clone https://github.com/governance-foundation/template-electron-vuex-vuetify.git
+
+# enter the project directory
+cd template-electron-vuex-vuetify
+
+# install dependency
+npm install
+
+# develop
+npm run electron:dev
+```
 
 ## Recommended IDE Setup
 
@@ -86,13 +107,12 @@ Compile installable Electron packages.
 npm run app:build
 ```
 
-
 ## Customize configuration
 
 * See [Configuration Reference](https://cli.vuejs.org/config/).
 * Mac category [LSApplicationCategoryType](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8)
-* Update App Icons in `build` folder
-* Update App Details in `package.json`
+* Update App Icons in `electron/assets` folder.
+* Update App Details and build config in `package.json`.
 
 ## Pipelines
 
@@ -108,7 +128,6 @@ When you want to create a new release, follow these steps:
 2. Commit and sign that change (`git commit -s -a -m "chore: release v2022.02.20"`)
 3. Tag and sign your commit (`git tag -s -a v2022.02.20 -m "v2022.02.20"`). Make sure your tag name's format is `v{YYYY}.{MM}.{DD}`. Your workflow will use this tag to detect when to create a release
 4. Push your changes to GitHub (git push && git push --tags)
-
 
 ## App Generation
 
