@@ -1,79 +1,63 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
+      <v-col cols="12" class="my-3">
+        <v-row justify="center" no-gutters>
+          <v-col
+            md="2"
+            v-for="(next, i) in frameworksLogos"
+            :key="i"
+            :href="next.logo"
+          >
+            <v-img :src="next.logo" contain height="100" />
+          </v-col>
+        </v-row>
       </v-col>
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+          {{ title }}
         </h1>
 
         <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
-          >
+          Your template for making great apps.
         </p>
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
+        <h2 class="headline font-weight-bold mb-5">Frameworks</h2>
 
         <v-row justify="center">
           <a
-            v-for="(next, i) in whatsNext"
+            v-for="(next, i) in frameworks"
             :key="i"
             :href="next.href"
             class="subheading mx-3"
-            target="_blank"
+            target="_new"
           >
             {{ next.text }}
           </a>
         </v-row>
       </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
+      <v-col class="mb-6" cols="12">
+        <h3 class="headline font-weight-bold mb-6">Tools</h3>
 
         <v-row justify="center">
           <a
-            v-for="(link, i) in importantLinks"
+            v-for="(next, i) in tools"
             :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
+            :href="next.href"
+            class="subheading mx-4"
+            target="_new"
           >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
+            <v-img
+              :src="next.logo"
+              v-if="next.logo != undefined"
+              contain
+              class="mb-2"
+              height="50"
+            />
+            {{ next.text }}
           </a>
         </v-row>
       </v-col>
@@ -82,62 +66,87 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "HelloWorld",
-
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/getting-started/pre-made-layouts"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
-    ]
-  })
+  props: {
+    title: {
+      type: String,
+      default: "Welcome to Your Vue.js App",
+    },
+  },
+  computed: {
+    frameworksLogos() {
+      return this.frameworks.filter((f) => f.logo !== undefined);
+    },
+  },
+  data() {
+    return {
+      frameworks: [
+        {
+          text: "Electron",
+          href: "https://www.electronjs.org/",
+          logo: "/assets/electron.svg",
+        },
+        {
+          text: "Vue3",
+          href: "https://vuejs.org/",
+          logo: "/assets/vue.svg",
+        },
+        {
+          text: "Vite2",
+          href: "https://vitejs.dev/",
+          logo: "/assets/vite.svg",
+        },
+        {
+          text: "Vuex4",
+          href: "https://vuex.vuejs.org/",
+        },
+        {
+          text: "Vuetify3",
+          href: "https://vuetifyjs.com/",
+          logo: "/assets/vuetify.svg",
+        },
+      ],
+      tools: [
+        {
+          text: "Vitest",
+          href: "https://vitest.dev/",
+          logo: "/assets/vitest.svg",
+        },
+        {
+          text: "Cypress",
+          href: "https://www.cypress.io/",
+          logo: "/assets/cypress.png",
+        },
+        {
+          text: "Github Actions",
+          href: "https://docs.github.com/en/actions",
+          logo: "/assets/github-actions.png",
+        },
+        {
+          text: "JsDom",
+          href: "https://github.com/jsdom/jsdom",
+          logo: "/assets/jsdom.svg",
+        },
+        {
+          text: "Typescript",
+          href: "https://www.typescriptlang.org/",
+          logo: "/assets/typescript.svg",
+        },
+        {
+          text: "Prettier",
+          href: "https://prettier.io/",
+          logo: "/assets/prettier.png",
+        },
+        {
+          text: "ESLint",
+          href: "https://eslint.org/",
+          logo: "/assets/eslint.svg",
+        },
+      ],
+    };
+  },
 });
 </script>
