@@ -9,7 +9,7 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "test:unit": "vitest",
-    "test:e2e": "start-server-and-test preview 8080 'cypress open'",
+    "test:e2e": "start-server-and-test preview 8080 'cypress open --config baseUrl=http://localhost:8080'",
     "lint:script": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "lint:style": "stylelint src/**/*.{css,scss,vue}",
     "dev": "vite",
@@ -21,9 +21,9 @@
     "app:build": "npm run build:for:electron && npm run electron:builder",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "preview": "vite preview --port 8080 --host ",
-    "test:e2e:ci2": "start-server-and-test preview 8080 'cypress run'",
-    "test:e2e:ci": "concurrently -k \"cross-env BROWSER=none npm run preview\" \"wait-on --verbose http://localhost:8080 && cypress run\"",
+    "preview": "vite preview --port 8080 --host 0.0.0.0 ",
+    "test:e2e:ci": "start-server-and-test preview 8080 'cypress run --config baseUrl=http://localhost:8080'",
+    "test:e2e:ci1": "concurrently -k \"cross-env BROWSER=none npm run preview\" \"wait-on --verbose http://localhost:8080 && cypress run --config baseUrl=http://localhost:8080\"",
     "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "main": "electron/electron.js",
