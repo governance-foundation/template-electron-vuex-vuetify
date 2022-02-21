@@ -71,7 +71,7 @@ jobs:
       - name: Run Cypress using Docker
         if: matrix.os == 'ubuntu-latest'
         run: |
-          docker compose up --abort-on-container-exit
+          docker compose up --abort-on-container-exit --quiet-pull --renew-anon-volumes
 
       # - name: Run Cypress using Node
       #   if: matrix.os != 'ubuntu-latest'
