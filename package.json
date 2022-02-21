@@ -23,7 +23,7 @@
     "postuninstall": "electron-builder install-app-deps",
     "preview": "vite preview --port 8080 --host localhost",
     "test:e2e:ci2": "start-server-and-test preview 8080 'cypress run'",
-    "test:e2e:ci": "concurrently -k \"cross-env BROWSER=none npm run preview\" \"npm run cypress run\"",
+    "test:e2e:ci": "concurrently -k \"cross-env BROWSER=none npm run preview\" \"wait-on --verbose http://localhost:8080 && npm run cypress run\"",
     "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "main": "electron/electron.js",
