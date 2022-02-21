@@ -72,7 +72,7 @@ jobs:
       #   run: npm run test:e2e:ci
 
       - name: Run Cypress tests
-        uses: ./
+        uses: cypress-io/github-action@v2
         with:
           # build: npm run build
           start: npm run preview
