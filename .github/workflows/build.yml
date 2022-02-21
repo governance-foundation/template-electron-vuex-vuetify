@@ -68,8 +68,9 @@ jobs:
       #   with:
       #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Run Cypress
-      #   run: npm run test:e2e:ci
+      - name: Run Cypress
+        if: matrix.os == 'macos-latest'
+        run: npm run test:e2e:ci
 
       # - name: Run Cypress tests
       #   uses: cypress-io/github-action@v3.0.2
@@ -89,6 +90,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run automation tests in docker
+        if: matrix.os != 'macos-latest'
         run: |
           docker compose up
 
