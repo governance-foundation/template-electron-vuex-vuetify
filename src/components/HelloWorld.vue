@@ -4,9 +4,9 @@
       <v-col cols="12" class="my-3">
         <v-row justify="center" no-gutters>
           <v-col
-            md="2"
             v-for="(next, i) in frameworksLogos"
             :key="i"
+            md="2"
             :href="next.logo"
           >
             <v-img :src="next.logo" contain height="100" />
@@ -51,8 +51,8 @@
             target="_new"
           >
             <v-img
-              :src="next.logo"
               v-if="next.logo != undefined"
+              :src="next.logo"
               contain
               class="mb-2"
               height="50"
@@ -66,87 +66,87 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+  import { defineComponent } from "vue"
 
-export default defineComponent({
-  name: "HelloWorld",
-  props: {
-    title: {
-      type: String,
-      default: "Welcome to Your Vue.js App",
+  export default defineComponent({
+    name: "HelloWorld",
+    props: {
+      title: {
+        type: String,
+        default: "Welcome to Your Vue.js App",
+      },
     },
-  },
-  computed: {
-    frameworksLogos() {
-      return this.frameworks.filter((f) => f.logo !== undefined);
+    data() {
+      return {
+        frameworks: [
+          {
+            text: "Electron",
+            href: "https://www.electronjs.org/",
+            logo: "/assets/electron.svg",
+          },
+          {
+            text: "Vue3",
+            href: "https://vuejs.org/",
+            logo: "/assets/vue.svg",
+          },
+          {
+            text: "Vite2",
+            href: "https://vitejs.dev/",
+            logo: "/assets/vite.svg",
+          },
+          {
+            text: "Vuex4",
+            href: "https://vuex.vuejs.org/",
+          },
+          {
+            text: "Vuetify3",
+            href: "https://vuetifyjs.com/",
+            logo: "/assets/vuetify.svg",
+          },
+        ],
+        tools: [
+          {
+            text: "Vitest",
+            href: "https://vitest.dev/",
+            logo: "/assets/vitest.svg",
+          },
+          {
+            text: "Cypress",
+            href: "https://www.cypress.io/",
+            logo: "/assets/cypress.png",
+          },
+          {
+            text: "Github Actions",
+            href: "https://docs.github.com/en/actions",
+            logo: "/assets/github-actions.png",
+          },
+          {
+            text: "JsDom",
+            href: "https://github.com/jsdom/jsdom",
+            logo: "/assets/jsdom.svg",
+          },
+          {
+            text: "Typescript",
+            href: "https://www.typescriptlang.org/",
+            logo: "/assets/typescript.svg",
+          },
+          {
+            text: "Prettier",
+            href: "https://prettier.io/",
+            logo: "/assets/prettier.png",
+          },
+          {
+            text: "ESLint",
+            href: "https://eslint.org/",
+            logo: "/assets/eslint.svg",
+          },
+        ],
+      }
     },
-  },
-  data() {
-    return {
-      frameworks: [
-        {
-          text: "Electron",
-          href: "https://www.electronjs.org/",
-          logo: "/assets/electron.svg",
-        },
-        {
-          text: "Vue3",
-          href: "https://vuejs.org/",
-          logo: "/assets/vue.svg",
-        },
-        {
-          text: "Vite2",
-          href: "https://vitejs.dev/",
-          logo: "/assets/vite.svg",
-        },
-        {
-          text: "Vuex4",
-          href: "https://vuex.vuejs.org/",
-        },
-        {
-          text: "Vuetify3",
-          href: "https://vuetifyjs.com/",
-          logo: "/assets/vuetify.svg",
-        },
-      ],
-      tools: [
-        {
-          text: "Vitest",
-          href: "https://vitest.dev/",
-          logo: "/assets/vitest.svg",
-        },
-        {
-          text: "Cypress",
-          href: "https://www.cypress.io/",
-          logo: "/assets/cypress.png",
-        },
-        {
-          text: "Github Actions",
-          href: "https://docs.github.com/en/actions",
-          logo: "/assets/github-actions.png",
-        },
-        {
-          text: "JsDom",
-          href: "https://github.com/jsdom/jsdom",
-          logo: "/assets/jsdom.svg",
-        },
-        {
-          text: "Typescript",
-          href: "https://www.typescriptlang.org/",
-          logo: "/assets/typescript.svg",
-        },
-        {
-          text: "Prettier",
-          href: "https://prettier.io/",
-          logo: "/assets/prettier.png",
-        },
-        {
-          text: "ESLint",
-          href: "https://eslint.org/",
-          logo: "/assets/eslint.svg",
-        },
-      ],
-    };
-  },
-});
+    computed: {
+      frameworksLogos() {
+        return this.frameworks.filter((f) => f.logo !== undefined)
+      },
+    },
+  })
 </script>
