@@ -48,16 +48,16 @@ jobs:
         run: |
           npm install
 
-      - name: Setup Xvfb
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          # Install display server dependencies
-          # Install core libraries for chromium driver
-          sudo apt install -y xvfb libxtst6 libxss1 libgtk2.0-0 libnss3 libasound2 libgconf-2-4
-          export {no_proxy,NO_PROXY}="127.0.0.1,localhost"
-          export DISPLAY=:99.0
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          sleep 3
+      # - name: Setup Xvfb
+      #   if: matrix.os == 'ubuntu-latest'
+      #   run: |
+      #     # Install display server dependencies
+      #     # Install core libraries for chromium driver
+      #     sudo apt install -y xvfb libxtst6 libxss1 libgtk2.0-0 libnss3 libasound2 libgconf-2-4
+      #     export {no_proxy,NO_PROXY}="127.0.0.1,localhost"
+      #     export DISPLAY=:99.0
+      #     Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+      #     sleep 3
 
       # disabled for now as they dont work
       # - name: Run Unit Test with Coverage
@@ -68,11 +68,11 @@ jobs:
       #   with:
       #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Cypress
-        run: npm run test:e2e:ci
+      # - name: Run Cypress
+      #   run: npm run test:e2e:ci
 
       # - name: Run Cypress tests
-      #   uses: cypress-io/github-action@v2.3.8
+      #   uses: cypress-io/github-action@v3.0.2
       #   with:
       #     # build: npm run build
       #     start: npm run preview
@@ -83,15 +83,17 @@ jobs:
       #     tag: ${{ matrix.friendlyName }}
       #     headless: true
       #     record: true
+      #     config: baseUrl=http://localhost:8080
       #   env:
       #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Run automation tests in docker
-      #   run: |
-      #     docker-compose up
+      - name: Run automation tests in docker
+        run: |
+          docker-compose up
 
       - name: Build/release Electron app
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         uses: samuelmeuli/action-electron-builder@v1
         with:
           build_script_name: "app:build"
