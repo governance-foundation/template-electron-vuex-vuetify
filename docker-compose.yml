@@ -33,12 +33,12 @@ services:
       server:
         condition: service_healthy
 
-  docker-stop-server:
-    image: docker:dind
-    working_dir: /source
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: docker stop template-electron-vuex-vuetify-server-1
-    depends_on:
-      cypress:
-        condition: service_completed_successfully
+  # docker-stop-server:
+  #   image: docker:dind
+  #   working_dir: /source
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   command: docker stop template-electron-vuex-vuetify-server-1
+  #   depends_on:
+  #     cypress:
+  #       condition: service_completed_successfully

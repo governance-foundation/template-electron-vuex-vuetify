@@ -71,7 +71,7 @@ jobs:
       - name: Run Cypress using Docker
         if: matrix.os == 'ubuntu-latest'
         run: |
-          docker compose up
+          docker compose up --abort-on-container-exit
 
       # - name: Run Cypress using Node
       #   if: matrix.os != 'ubuntu-latest'
@@ -93,8 +93,6 @@ jobs:
       #   env:
       #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
 
       - name: Build/release Electron app
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
