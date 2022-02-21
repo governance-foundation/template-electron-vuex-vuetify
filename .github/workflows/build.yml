@@ -68,8 +68,13 @@ jobs:
       #   with:
       #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Cypress
-        if: matrix.os == 'macos-latest'
+      - name: Run Cypress using Docker
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          docker compose up
+
+      - name: Run Cypress using Node
+        if: matrix.os != 'ubuntu-latest'
         run: npm run test:e2e:ci
 
       # - name: Run Cypress tests
@@ -89,10 +94,7 @@ jobs:
       #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run automation tests in docker
-        if: matrix.os != 'macos-latest'
-        run: |
-          docker compose up
+
 
       - name: Build/release Electron app
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
