@@ -72,12 +72,19 @@ jobs:
       #   run: npm run test:e2e:ci
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3.0.2
         with:
           # build: npm run build
           start: npm run preview
+          # parallel: true
           # command: npm run test:e2e:ci
           wait-on: "http://localhost:8080"
+          wait-on-timeout: 120
+          tag: ${{ matrix.friendlyName }}
+          headless: true
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
