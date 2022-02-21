@@ -17,11 +17,11 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            friendlyName: Ubuntu
+            friendlyName: Unit Test - Ubuntu
           - os: macos-latest
-            friendlyName: MacOS
+            friendlyName: Unit Test - MacOS
           - os: windows-latest
-            friendlyName: Windows
+            friendlyName: Unit Test - Windows
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
@@ -60,7 +60,6 @@ jobs:
       #     sleep 3
 
       - name: Run Unit Test with
-        if: matrix.os != 'ubuntu-latest'
         run: npm run test:unit
 
       # - name: Push to Coveralls
@@ -79,7 +78,7 @@ jobs:
         os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
-            friendlyName: Ubuntu
+            friendlyName: Functional Test - Ubuntu
 
     steps:
       - name: Check out Git repository
@@ -100,11 +99,11 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            friendlyName: Ubuntu
+            friendlyName: Release - Ubuntu
           - os: macos-latest
-            friendlyName: MacOS
+            friendlyName: Release -MacOS
           - os: windows-latest
-            friendlyName: Windows
+            friendlyName: Release - Windows
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
@@ -113,19 +112,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - name: Run Install
         run: |
