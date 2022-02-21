@@ -47,6 +47,7 @@ jobs:
       - name: Run Install
         run: |
           npm install
+          npm i -g electron-builder
 
       # - name: Setup Xvfb
       #   if: matrix.os == 'ubuntu-latest'
