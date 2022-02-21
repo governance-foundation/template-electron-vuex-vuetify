@@ -4,10 +4,14 @@ services:
   server:
     image: node
     hostname: server
-    command: bash -c "npm install && npm run preview"
+    command: bash -c "npm install && npm run preview:ci"
     working_dir: /source
     volumes:
       - ./:/source
+    env:
+      - NODE_ENV=production
+      - PORT=8080
+      - HOST=host.docker.internal
     ports:
       - "8080:8080"
     healthcheck:
