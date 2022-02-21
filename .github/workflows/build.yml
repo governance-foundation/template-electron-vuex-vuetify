@@ -3,7 +3,7 @@ name: Build/release
 on:
   push:
     branches:
-      - '*'
+      - "*"
 
 jobs:
   release:
@@ -68,8 +68,16 @@ jobs:
       #   with:
       #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Cypress
-        run: npm run test:e2e:ci
+      # - name: Run Cypress
+      #   run: npm run test:e2e:ci
+
+      - name: Run Cypress tests
+        uses: ./
+        with:
+          # build: npm run build
+          start: npm run preview
+          # command: npm run test:e2e:ci
+          wait-on: "http://localhost:8080"
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
