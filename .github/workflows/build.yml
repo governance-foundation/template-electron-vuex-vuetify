@@ -73,9 +73,9 @@ jobs:
         run: |
           docker compose up
 
-      - name: Run Cypress using Node
-        if: matrix.os != 'ubuntu-latest'
-        run: npm run test:e2e:ci
+      # - name: Run Cypress using Node
+      #   if: matrix.os != 'ubuntu-latest'
+      #   run: npm run test:e2e:ci
 
       # - name: Run Cypress tests
       #   uses: cypress-io/github-action@v3.0.2
