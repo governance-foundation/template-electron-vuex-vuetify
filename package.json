@@ -94,7 +94,7 @@
     "pre-push": ""
   },
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix",
+    "*.{ts,tsx}": "eslint --fix",
     "*.{css,scss,vue}": "stylelint --fix",
     "*": "prettier --write"
   },
