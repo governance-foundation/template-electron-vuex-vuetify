@@ -101,7 +101,7 @@ jobs:
           - os: ubuntu-latest
             friendlyName: Release - Ubuntu
           - os: macos-latest
-            friendlyName: Release -MacOS
+            friendlyName: Release - MacOS
           - os: windows-latest
             friendlyName: Release - Windows
     steps:

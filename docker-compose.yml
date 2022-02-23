@@ -4,7 +4,7 @@ services:
   server:
     image: aemdesign/centos-java-buildpack:jdk11
     hostname: server
-    command: bash -c "nvm install v16.14.0 && rm -f package-lock.json && npm install && npm run preview:ci"
+    command: bash -c -l "nvm install v16.14.0 && rm -f package-lock.json && npm install && npm run preview:ci"
     working_dir: /source
     volumes:
       - ./:/source
