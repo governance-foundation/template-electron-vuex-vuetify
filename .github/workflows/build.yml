@@ -86,7 +86,7 @@ jobs:
 
       - name: Run Cypress using Docker
         run: |
-          docker compose up --abort-on-container-exit --quiet-pull --renew-anon-volumes --exit-code-from server
+            docker compose up --abort-on-container-exit --quiet-pull --renew-anon-volumes --exit-code-from server
 
   release:
     if: "(github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && !contains(github.event.head_commit.message, 'skip ci')"
@@ -125,15 +125,15 @@ jobs:
         uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        files: >
-          dist_electron/*-mac.zip
-          dist_electron/*.AppImage
-          dist_electron/*.snap
-          dist_electron/*.dmg
-          dist_electron/*.dmg.blockmap
-          dist_electron/*.exe
-          dist_electron/*.exe.blockmap
-          dist_electron/latest*.yml
+          files: >
+            dist_electron/*-mac.zip
+            dist_electron/*.AppImage
+            dist_electron/*.snap
+            dist_electron/*.dmg
+            dist_electron/*.dmg.blockmap
+            dist_electron/*.exe
+            dist_electron/*.exe.blockmap
+            dist_electron/latest*.yml
 
       # - name: Build/release Electron app
       #   uses: samuelmeuli/action-electron-builder@v1
