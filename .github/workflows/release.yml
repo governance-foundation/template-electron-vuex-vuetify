@@ -15,9 +15,9 @@ jobs:
     strategy:
       matrix:
         node: [14.13.1]
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest, ubuntu-18.04, windows-latest]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-18.04
             friendlyName: Release - Ubuntu
           - os: macos-latest
             friendlyName: Release - MacOS
