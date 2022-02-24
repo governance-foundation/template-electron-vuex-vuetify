@@ -20,7 +20,8 @@ services:
       start_period: 10s
     networks:
       default:
-        alias: server
+        aliases:
+          - server
 
   cypress:
     image: cypress/included:9.5.0
