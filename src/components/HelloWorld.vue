@@ -100,7 +100,6 @@
         default: "Welcome to Your Vue.js App",
       },
     },
-
     data() {
       return {
         selectedLang: langModule.language,
