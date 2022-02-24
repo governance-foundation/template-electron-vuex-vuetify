@@ -2,33 +2,32 @@ version: "3.9"
 
 services:
   server:
-    image: aemdesign/centos-java-buildpack:jdk11
+    image: aemdesign/java-buildpack:ubuntu
     hostname: server
-    command: bash -c -l "nvm install v16.14.0 && rm -f package-lock.json && npm install && npm run preview:ci"
+    command: bash -c -l "nvm install v16.14.0 && npm install && npm run preview:ci"
     working_dir: /source
     volumes:
       - ./:/source
     environment:
       - NODE_ENV=production
       - PORT=8080
-      - HOST=host.docker.internal
-    ports:
-      - "8080:8080"
+      - HOST=server
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://host.docker.internal:8080"]
+      test: ["CMD", "curl", "-f", "http://server:8080"]
       interval: 10s
       timeout: 5s
       retries: 300
       start_period: 10s
     networks:
-      - default
+      default:
+        alias: server
 
   cypress:
     image: cypress/included:9.5.0
     working_dir: /source
     volumes:
       - ./:/source
-    command: run --config baseUrl=http://host.docker.internal:8080
+    command: run --config baseUrl=http://server:8080
     depends_on:
       server:
         condition: service_healthy
