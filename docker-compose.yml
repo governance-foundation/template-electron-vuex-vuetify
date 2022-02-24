@@ -4,7 +4,7 @@ services:
   server:
     image: aemdesign/java-buildpack:ubuntu
     hostname: server
-    command: bash -c -l "nvm install v17.6.0 && npm install --prefix /node_modules && npm --prefix /node_modules run preview:ci"
+    command: bash -c -l "rm -rf package-lock.json node_modules && npm install && npm run preview:ci"
     working_dir: /source
     volumes:
       - ./:/source
