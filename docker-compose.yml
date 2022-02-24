@@ -4,7 +4,7 @@ services:
   server:
     image: aemdesign/java-buildpack:ubuntu
     hostname: server
-    command: bash -c -l "nvm install v16.14.0 && npm install && npm run preview:ci"
+    command: bash -c -l "nvm install v17.6.0 && npm install --prefix=/node && npm --prefix=/node run preview:ci"
     working_dir: /source
     volumes:
       - ./:/source
