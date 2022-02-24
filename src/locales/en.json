@@ -1,0 +1,19 @@
+{
+  "components": {
+    "helloworld": {
+      "heading": "Welcome to Vue3 + Vite + Vuetify Electron app.",
+      "sub-heading": "Your template for making great apps.",
+      "frameworks-heading": "Frameworks",
+      "frameworks": ["Electron", "Vue3", "Vite2", "Vuex4", "Vuetify3"],
+      "tools-heading": "Tools",
+      "tools": [
+        "Cypress",
+        "Github Actions",
+        "JsDom",
+        "TypeScript",
+        "Prettier",
+        "ESLint"
+      ]
+    }
+  }
+}
