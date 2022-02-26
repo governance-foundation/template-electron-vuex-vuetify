@@ -9,6 +9,8 @@ GIT_BRANCH=${2:-DEFAULT_BRANCH}
 if [[ $GIT_BRANCH == "" ]]; then
   GIT_BRANCH=$DEFAULT_BRANCH
 fi
+echo "OS"
+lsb_release -a
 echo "INSTALL: NODE"
 nvm install v17.6.0
 echo "GET: BRANCH ${GIT_BRANCH} IN ${GIT_REPO_URL}"
