@@ -3,10 +3,10 @@ version: "3.9"
 services:
   server:
     image: aemdesign/java-buildpack:jdk11-ubuntu
-    command: bash -l /source/automation-test.sh "https://github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}.git" "${GITHUB_REF_NAME}"
-    working_dir: /source
+    command: bash --login /automation-test.sh https://github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}.git ${GITHUB_REF_NAME}
+    working_dir: /
     volumes:
-      - ./:/source
+      - ./automation-test.sh:/automation-test.sh
     environment:
       - NODE_ENV=production
       - PORT=8080

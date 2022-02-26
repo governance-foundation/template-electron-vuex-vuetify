@@ -12,9 +12,11 @@ fi
 echo "INSTALL: NODE"
 nvm install v17.6.0
 echo "GET: BRANCH ${GIT_BRANCH} IN ${GIT_REPO_URL}"
-git clone --single-branch --branch ${GIT_BRANCH} ${GIT_REPO_URL} /tmp/gitource
-cd /tmp/gitource
-rm -rf package-lock.json
+git clone ${GIT_REPO_URL}
+cd template-electron-vuex-vuetify
+git checkout ${GIT_BRANCH}
+# rm -rf package-lock.json
+echo "PATH: $(pwd)"
 echo "INSTALL: ELECTRON BUILDER"
 npm i -g electron-builder
 echo "VERSION: ELECTRON BUILDER"
