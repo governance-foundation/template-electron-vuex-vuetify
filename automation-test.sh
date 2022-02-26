@@ -27,5 +27,8 @@ echo "VERSION: VITE"
 vite --version
 echo "INSTALL: NPM"
 npm install
+echo "CHECK:"
+ls -al
+ls -al npm_modules/@vue/tsconfig
 echo "RUN: PREVIEW"
 npm run preview:ci
