@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   server:
-    image: aemdesign/java-buildpack:jdk11-ubuntu
+    image: aemdesign/java-buildpack:jdk11
     command: bash --login /automation-test.sh https://github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}.git ${GITHUB_REF_NAME}
     working_dir: /
     volumes:
