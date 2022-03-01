@@ -28,7 +28,9 @@ echo "PATH: $(pwd)"
 # vite --version
 echo "CONFIG: NPM"
 npm config get script-shell
-npm config set script-shell "bash -l"
+echo "CONFIG: NPM"
+npm config set script-shell "/bin/bash --login"
+echo "CONFIG: NPM"
 npm config get script-shell
 echo "INSTALL: NPM"
 npm install --verbose
