@@ -1,4 +1,3 @@
-#!/bin/bash
 DEFAULT_URL="https://github.com/governance-foundation/template-electron-vuex-vuetify.git"
 DEFAULT_BRANCH="master"
 GIT_REPO_URL=${1:-DEFAULT_URL}
@@ -19,18 +18,22 @@ cd template-electron-vuex-vuetify
 git checkout ${GIT_BRANCH}
 # rm -rf package-lock.json
 echo "PATH: $(pwd)"
-echo "INSTALL: ELECTRON BUILDER"
-npm i -g electron-builder
-echo "VERSION: ELECTRON BUILDER"
-electron-builder --version
-echo "INSTALL VITE"
-npm i -g vite
-echo "VERSION: VITE"
-vite --version
+# echo "INSTALL: ELECTRON BUILDER"
+# npm i -g electron-builder
+# echo "VERSION: ELECTRON BUILDER"
+# electron-builder --version
+# echo "INSTALL VITE"
+# npm i -g vite
+# echo "VERSION: VITE"
+# vite --version
+echo "CONFIG: NPM"
+npm config get script-shell
+npm config set script-shell "bash -l"
+npm config get script-shell
 echo "INSTALL: NPM"
-npm install
-echo "CHECK:"
+npm install --verbose
+echo "CHECK: NPM"
 ls -al
-ls -al npm_modules/@vue/tsconfig
+ls -al node_modules/@vue
 echo "RUN: PREVIEW"
 npm run preview:ci
