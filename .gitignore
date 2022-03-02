@@ -4,6 +4,8 @@ node_modules
 
 /cypress/videos/
 /cypress/screenshots/
+/cypress/reports/
+/cypress/results/
 
 # local env files
 node_modules
