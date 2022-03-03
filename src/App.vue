@@ -7,15 +7,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+  import { defineComponent } from "vue"
 
-export default defineComponent({
-  name: "App",
+  export default defineComponent({
+    name: "App",
 
-  data() {
-    return {
-      //
-    };
-  },
-});
+    data() {
+      return {
+        //
+      }
+    },
+  })
 </script>

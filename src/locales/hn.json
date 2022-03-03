@@ -1,0 +1,19 @@
+{
+  "components": {
+    "helloworld": {
+      "heading": "Vue3 + Vite + Vuetify इलेक्ट्रॉन ऐप में आपका स्वागत है।",
+      "sub-heading": "बढ़िया ऐप्स बनाने के लिए आपका टेम्प्लेट।",
+      "frameworks-heading": "फ़्रेमवर्क",
+      "frameworks": ["Electron", "Vue3", "Vite2", "Vuex4", "Vuetify3"],
+      "tools-heading": "उपकरण",
+      "tools": [
+        "Cypress",
+        "Github Actions",
+        "JsDom",
+        "TypeScript",
+        "Prettier",
+        "ESLint"
+      ]
+    }
+  }
+}

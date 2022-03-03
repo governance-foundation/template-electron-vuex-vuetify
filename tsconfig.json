@@ -18,35 +18,17 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env",
-      "vite/client",
-      "vitest/globals"
-    ],
+    "types": ["webpack-env", "vite/client", "vitest/globals"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": [
-    "env.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/__tests__/*",
-  ],
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "src/**/__tests__/*"],
   "references": [
     {
       "path": "./tsconfig.vite-config.json"
