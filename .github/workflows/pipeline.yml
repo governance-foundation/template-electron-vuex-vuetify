@@ -89,7 +89,7 @@ jobs:
 
       - name: Run Cypress using Docker
         run: |
-          docker compose up --abort-on-container-exit --quiet-pull --force-recreate --renew-anon-volumes --exit-code-from server --attach cypress
+          docker compose up --abort-on-container-exit --quiet-pull --force-recreate --renew-anon-volumes --exit-code-from server
 
   release:
     needs: [unit-test, functional-test]

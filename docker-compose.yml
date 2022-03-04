@@ -3,20 +3,15 @@ version: "3.9"
 services:
   server:
     image: aemdesign/java-buildpack:jdk11
-    command: bash --login /automation-test.sh https://github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}.git ${GITHUB_REF_NAME}
+    command: /bin/bash -i -l /automation-test.sh https://github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY}.git ${GITHUB_REF_NAME} || exit 1
     working_dir: /
     volumes:
       - ./automation-test.sh:/automation-test.sh
+      - ./scripts/profile.sh:/build/.profile
     environment:
       - NODE_ENV=production
       - PORT=8080
       - HOST=server
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://server:8080"]
-      interval: 3s
-      timeout: 5s
-      retries: 5
-      start_period: 2s
     networks:
       default:
         aliases:
@@ -25,14 +20,13 @@ services:
   cypress:
     image: cypress/included:9.5.0
     working_dir: /source
+    entrypoint: ""
     volumes:
       - ./:/source
-    command: run --config baseUrl=http://server:8080
-    depends_on:
-      server:
-        condition: service_healthy
+    command: /bin/bash /source/scripts/wait-for-it.sh server:8080 -- cypress run --config baseUrl=http://server:8080
     networks:
       - default
+
   # docker-stop-server:
   #   image: docker:dind
   #   working_dir: /source
