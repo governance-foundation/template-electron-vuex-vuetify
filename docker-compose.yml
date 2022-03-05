@@ -2,10 +2,11 @@ version: "3.9"
 
 services:
 
-  # star server
+  # start server
   server:
     image: aemdesign/java-buildpack:jdk11
     command: /bin/bash -l /build/source/scripts/automation-test.sh
+    user: root
     working_dir: /build/source
     volumes:
       - ./:/build/source
@@ -23,6 +24,7 @@ services:
       default:
         aliases:
           - server
+
 
   # run tests
   cypress:
