@@ -38,7 +38,7 @@ services:
       - default
 
   # force server exit if cypress has finished
-  docker-stop-server:
+  docker-stop-on-cypress:
     image: docker:dind
     working_dir: /source
     volumes:
@@ -47,6 +47,18 @@ services:
     command: docker compose down
     depends_on:
       cypress:
+        condition: service_completed_successfully
+
+  # force server exit if cypress has finished
+  docker-stop-on-server:
+    image: docker:dind
+    working_dir: /source
+    volumes:
+      - ./:/source
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: docker compose down
+    depends_on:
+      service:
         condition: service_completed_successfully
 
 networks:
