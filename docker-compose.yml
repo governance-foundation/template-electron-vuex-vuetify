@@ -6,12 +6,11 @@ services:
   server:
     image: aemdesign/java-buildpack:jdk11
     command: /bin/bash -l /build/source/scripts/automation-test.sh
-    user: root
     working_dir: /build/source
     volumes:
       - ./:/build/source
     environment:
-      - NODE_ENV=dev
+      - NODE_ENV=production
       - PORT=8080
       - HOST=server
     healthcheck:
@@ -24,7 +23,6 @@ services:
       default:
         aliases:
           - server
-
 
   # run tests
   cypress:
