@@ -4,4 +4,3 @@ echo "INSTALL: PACKAGES"
 npm install
 echo "RUN: PREVIEW"
 npm run preview:ci
-exit 1
