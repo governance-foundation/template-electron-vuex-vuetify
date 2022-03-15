@@ -1,5 +1,19 @@
 <template>
   <v-container>
+    <v-row class="text-right">
+      <v-col>
+        <label for="selectedLang">Language: </label>
+        <select id="selectedLang" :value="selectedLang" @change="handleChange">
+          <option
+            v-for="option in options"
+            :key="option.value"
+            :value="option.value"
+          >
+            {{ option.text }}
+          </option>
+        </select>
+      </v-col>
+    </v-row>
     <v-row class="text-center">
       <v-col cols="12" class="my-3">
         <v-row justify="center" no-gutters>
