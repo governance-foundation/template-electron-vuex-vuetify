@@ -135,6 +135,12 @@ When you want to create a new release, follow these steps:
 3. Tag and sign your commit (`git tag -s -a v2022.02.20 -m "v2022.02.20"`). Make sure your tag name's format is `v{YYYY}.{MM}.{DD}`. Your workflow will use this tag to detect when to create a release
 4. Push your changes to GitHub (git push && git push --tags)
 
+## Pull Request
+
+When commiting code please ensure that you add your commits to dedicated feature branch, name your branch `feature/#<issue id>-name-of-issue`.
+When creating a PR please add default reviewers to your PR. Set title of your PR as `#<issue id> Title of issue`.
+When interacting with reviews on your PR please resolve conversartions that you have fixed, and re-request reviews after you have pushed updates to your branch.
+
 ## App Generation
 
 To generate this app from sratch run the following:
