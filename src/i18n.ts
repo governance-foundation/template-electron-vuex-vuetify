@@ -1,13 +1,13 @@
 import { createI18n } from "vue-i18n"
 import en from "./locales/en.json"
-import hn from "./locales/hn.json"
+import hi from "./locales/hi.json"
 import { getModule } from "vuex-module-decorators"
 import Language from "./store/Modules/Language"
 const langModule = getModule(Language)
 
 const messages = {
   en,
-  hn,
+  hi,
 }
 
 const i18n = createI18n({
