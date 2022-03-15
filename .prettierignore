@@ -1,3 +1,4 @@
 *.sh
 .prettierignore
 *.ps1
+CODEOWNERS
