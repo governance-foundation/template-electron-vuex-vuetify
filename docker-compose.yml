@@ -1,7 +1,6 @@
 version: "3.9"
 
 services:
-
   # start server
   server:
     image: aemdesign/java-buildpack:jdk11
@@ -23,19 +22,37 @@ services:
       default:
         aliases:
           - server
-
-  # run tests
-  cypress:
-    image: cypress/included:9.5.0
-    working_dir: /source
-    volumes:
-      - ./:/source
-    command: run --config baseUrl=http://server:8080
-    depends_on:
-      server:
-        condition: service_healthy
-    networks:
-      - default
+#
+#  # run tests
+#  cypress:
+#    image: cypress/included:9.5.0
+#    working_dir: /source
+#    volumes:
+#      - ./:/source
+#    command: run --config baseUrl=http://server:8080
+#    depends_on:
+#      server:
+#        condition: service_healthy
+#    networks:
+#      - default
+#
+#  reports:
+#    image: aemdesign/java-buildpack:jdk11
+#    command: /bin/bash -l /build/source/scripts/generate-reports.sh
+#    working_dir: /build/source
+#    volumes:
+#      - ./:/build/source
+#    environment:
+#      - NODE_ENV=develop
+#      - PORT=8080
+#      - HOST=server
+#    depends_on:
+#      cypress:
+#        condition: service_completed_successfully
+#    networks:
+#      default:
+#        aliases:
+#          - reports
 
 networks:
   default:

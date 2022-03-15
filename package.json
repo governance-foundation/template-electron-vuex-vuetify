@@ -24,7 +24,7 @@
     "preview": "npm run build && vite preview --port 8080 --host localhost",
     "preview:ci": "npm run build && vite preview --port 8080 --host ${HOST} ",
     "test:e2e:ci2": "start-server-and-test preview 8080 'cypress run'",
-    "test:e2e:ci": "concurrently -k \"cross-env BROWSER=none npm run preview:ci\" \"wait-on --verbose http://localhost:8080 && cypress run\"",
+    "test:e2e:ci": "concurrently -k \"cross-env BROWSER=none npm run preview\" \"wait-on --verbose http://localhost:8080 && npm run test\"",
     "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "cypress": "cypress run --config baseUrl=http://localhost:8080 || true",
     "test": "npm run report:clean && npm run cypress",

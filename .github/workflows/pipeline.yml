@@ -8,7 +8,6 @@ on:
     types: [opened, reopened]
 
 jobs:
-
   branch-naming-rules:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
@@ -16,7 +15,7 @@ jobs:
       - uses: deepakputhraya/action-branch-name@master
         with:
           regex: '([a-z])+\/([a-z])+' # Regex the branch should match. This example enforces grouping
-          allowed_prefixes: 'feature,stable,fix' # All branches should start with the given prefix
+          allowed_prefixes: "feature,stable,fix" # All branches should start with the given prefix
           ignore: master,develop # Ignore exactly matching branch names from convention
           min_length: 5 # Min length of the branch name
           max_length: 20 # Max length of the branch name
@@ -102,7 +101,7 @@ jobs:
 
       - name: Run Cypress using Docker
         run: |
-          docker compose up --abort-on-container-exit --quiet-pull --force-recreate --renew-anon-volumes --exit-code-from cypress
+          docker compose up
 
   release:
     needs: [unit-test, functional-test]
