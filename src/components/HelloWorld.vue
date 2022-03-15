@@ -105,7 +105,7 @@
         selectedLang: langModule.language,
         options: [
           { text: "English", value: "en" },
-          { text: "हिन्दी", value: "hn" },
+          { text: "हिन्दी", value: "hi" },
         ],
         frameworks: [
           {
