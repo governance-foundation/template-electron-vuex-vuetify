@@ -178,7 +178,7 @@
       },
     },
     methods: {
-      handleChange(event: { target: { value: "" } }) {
+      handleChange(event: any) {
         const value = event.target.value
         this.selectedLang = value
         langModule.setLanguage(value)
