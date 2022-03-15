@@ -3,6 +3,10 @@
 describe("My First Test", () => {
   it("visits the app root url", () => {
     cy.visit("/")
-    cy.contains("h1", "Welcome")
+  })
+
+  it("changes language", () => {
+    cy.get("select").select("hn")
+    cy.contains("h1", "Vue3 + Vite + Vuetify इलेक्ट्रॉन ऐप में आपका स्वागत है।")
   })
 })

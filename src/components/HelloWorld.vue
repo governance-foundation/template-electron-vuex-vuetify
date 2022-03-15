@@ -16,16 +16,18 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          {{ title }}
+          {{ $t("components.helloworld.heading") }}
         </h1>
 
         <p class="subheading font-weight-regular">
-          Your template for making great apps.
+          {{ $t("components.helloworld.sub-heading") }}
         </p>
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">Frameworks</h2>
+        <h2 class="headline font-weight-bold mb-5">
+          {{ $t("components.helloworld.frameworks-heading") }}
+        </h2>
 
         <v-row justify="center">
           <a
@@ -35,12 +37,14 @@
             class="subheading mx-3"
             target="_new"
           >
-            {{ next.text }}
+            {{ $t(`components.helloworld.frameworks[${i}]`) }}
           </a>
         </v-row>
       </v-col>
       <v-col class="mb-6" cols="12">
-        <h3 class="headline font-weight-bold mb-6">Tools</h3>
+        <h3 class="headline font-weight-bold mb-6">
+          {{ $t("components.helloworld.tools-heading") }}
+        </h3>
 
         <v-row justify="center">
           <a
@@ -67,6 +71,12 @@
 
 <script lang="ts">
   import { defineComponent } from "vue"
+  import { getModule } from "vuex-module-decorators"
+  import Language from "../store/Modules/Language"
+  const langModule = getModule(Language)
+
+  console.log(langModule)
+  console.log(langModule.language)
 
   export default defineComponent({
     name: "HelloWorld",
@@ -78,6 +88,11 @@
     },
     data() {
       return {
+        selectedLang: langModule.language,
+        options: [
+          { text: "English", value: "en" },
+          { text: "हिन्दी", value: "hn" },
+        ],
         frameworks: [
           {
             text: "Electron",
@@ -146,6 +161,14 @@
     computed: {
       frameworksLogos() {
         return this.frameworks.filter((f) => f.logo !== undefined)
+      },
+    },
+    methods: {
+      handleChange(event: { target: { value: "" } }) {
+        const value = event.target.value
+        this.selectedLang = value
+        langModule.setLanguage(value)
+        this.$i18n.locale = value
       },
     },
   })
