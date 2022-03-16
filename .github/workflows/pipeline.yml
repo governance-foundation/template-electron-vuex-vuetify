@@ -112,7 +112,7 @@ jobs:
 
       - name: Run Functional Test
         run: |
-          npm run test:e2e:ci2
+          npm run test:e2e:ci3
         env:
           DEBUG: start-server-and-test
 
