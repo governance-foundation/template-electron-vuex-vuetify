@@ -143,7 +143,7 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: docker://aemdesign/java-buildpack:ubuntu
         with:
-          entrypoint: "/bin/sh"
+          entrypoint: "/bin/bash"
           args: |
             -l -c "\
             nvm install v17.6.0 && npm install && npm run app:build
