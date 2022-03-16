@@ -1,4 +1,5 @@
-
+#cypress
+.cache
 /cypress/videos/
 /cypress/screenshots/
 /cypress/reports/
@@ -33,3 +34,4 @@ lerna-debug.log*
 
 #Electron-builder output
 /dist_electron
+

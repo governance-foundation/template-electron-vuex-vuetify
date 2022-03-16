@@ -13,6 +13,7 @@ services:
       - PORT=8080
       - HOST=server
       - DEBUG=start-server-and-test
+      - CYPRESS_CACHE_FOLDER=/build/source/.cache
     healthcheck:
       test: ["CMD", "curl", "-f", "http://server:8080"]
       interval: 3s
