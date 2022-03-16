@@ -31,9 +31,10 @@
     "report:clean": "rm -rf cypress/results cypress/screenshots cypress/reports || true",
     "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/reports/report.json",
     "report:generate": "marge cypress/reports/report.json -f report -o cypress/reports",
-    "report:copyScreenshots": "cp -r cypress/screenshots cypress/reports/screenshots || true",
-    "report:copyVideos": "cp -r cypress/videos cypress/reports/videos || true",
-    "posttest": "npm run report:merge && npm run report:generate && npm run report:copyScreenshots && npm run report:copyVideos"
+    "report:moveScreenshots": "mv cypress/screenshots cypress/reports/screenshots 2>/dev/null || true",
+    "report:moveVideos": "mv cypress/videos cypress/reports/videos 2>/dev/null || true",
+    "report:moveData": "mv cypress/results/data cypress/reports/data 2>/dev/null || true",
+    "posttest": "npm run report:merge && npm run report:generate && npm run report:moveScreenshots && npm run report:moveVideos && npm run report:moveData"
   },
   "main": "electron/electron.js",
   "dependencies": {
