@@ -19,7 +19,7 @@
     "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
     "electron:builder": "electron-builder",
     "build:for:electron": "vue-tsc --noEmit && cross-env ELECTRON=true vite build",
-    "app:build": "npm run build:for:electron && npm run electron:builder -p never",
+    "app:build": "npm run build:for:electron && npm run electron:builder -p \"never\"",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
     "preview": "npm run build && vite preview --port 8080 --host localhost",
