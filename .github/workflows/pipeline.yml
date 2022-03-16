@@ -108,7 +108,8 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     name: ${{ matrix.friendlyName }}
     runs-on: ${{ matrix.os }}
-
+    env:
+      NODE_ENV: develop
     strategy:
       matrix:
         node: [14.13.1]
@@ -130,22 +131,22 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Run Install
-        if: matrix.os != 'ubuntu-latest'
+        #        if: matrix.os != 'ubuntu-latest'
         run: |
           npm install
 
       - name: Build electron
-        if: matrix.os != 'ubuntu-latest'
+        #        if: matrix.os != 'ubuntu-latest'
         run: |
           npm run app:build
 
-      - name: Run install and Build Electron for Ubuntu
-        if: matrix.os == 'ubuntu-latest'
-        uses: docker://aemdesign/java-buildpack:ubuntu
-        with:
-          entrypoint: "/bin/bash"
-          args: |
-            -l -c "nvm install v17.6.0 && npm install && npm run app:build"
+      #      - name: Run install and Build Electron for Ubuntu
+      #        if: matrix.os == 'ubuntu-latest'
+      #        uses: docker://aemdesign/java-buildpack:ubuntu
+      #        with:
+      #          entrypoint: ""
+      #          args: |
+      #            /bin/bash -l -c "nvm install v17.6.0 && npm install && npm run app:build"
 
       - name: Release files
         uses: meeDamian/github-release@2.0
