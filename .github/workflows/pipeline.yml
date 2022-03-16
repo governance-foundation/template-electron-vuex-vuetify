@@ -110,9 +110,9 @@ jobs:
         run: |
           npm install
 
-      - name: Build electron
+      - name: Run Functional Test
         run: |
-          npm run test:e2e:ci
+          npm run test:e2e:ci2
 
   #      - name: Run Cypress using Docker
   #        run: |
