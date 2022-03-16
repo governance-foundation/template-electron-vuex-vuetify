@@ -145,8 +145,7 @@ jobs:
         with:
           entrypoint: "/bin/bash"
           args: |
-            -l -c "\
-            nvm install v17.6.0 && npm install && npm run app:build
+            -l -c "nvm install v17.6.0 && npm install && npm run app:build"
 
       - name: Release files
         uses: meeDamian/github-release@2.0
