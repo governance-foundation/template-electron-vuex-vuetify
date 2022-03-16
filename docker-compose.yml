@@ -24,7 +24,7 @@ services:
       default:
         aliases:
           - server
-#
+
 #  # run tests
 #  cypress:
 #    image: cypress/included:9.5.0
