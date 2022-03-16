@@ -113,6 +113,8 @@ jobs:
       - name: Run Functional Test
         run: |
           npm run test:e2e:ci2
+        env:
+          DEBUG: start-server-and-test
 
   #      - name: Run Cypress using Docker
   #        run: |
