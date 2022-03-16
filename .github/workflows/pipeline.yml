@@ -89,7 +89,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [14.13.1]
+        node: [17.6.0]
         os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
@@ -112,7 +112,7 @@ jobs:
       NODE_ENV: develop
     strategy:
       matrix:
-        node: [14.13.1]
+        node: [17.6.0]
         os: [macos-latest, ubuntu-latest, windows-latest]
         include:
           - os: ubuntu-latest
