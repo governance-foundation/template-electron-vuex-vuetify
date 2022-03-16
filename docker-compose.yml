@@ -12,6 +12,7 @@ services:
       - NODE_ENV=develop
       - PORT=8080
       - HOST=server
+      - DEBUG=start-server-and-test
     healthcheck:
       test: ["CMD", "curl", "-f", "http://server:8080"]
       interval: 3s

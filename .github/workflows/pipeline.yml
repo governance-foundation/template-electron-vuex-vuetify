@@ -106,19 +106,19 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Run Install
-        run: |
-          npm install
+      #      - name: Run Install
+      #        run: |
+      #          npm install
+      #
+      #      - name: Run Functional Test
+      #        run: |
+      #          npm run test:e2e:ci3
+      #        env:
+      #          DEBUG: start-server-and-test
 
-      - name: Run Functional Test
+      - name: Run Cypress using Docker
         run: |
-          npm run test:e2e:ci3
-        env:
-          DEBUG: start-server-and-test
-
-  #      - name: Run Cypress using Docker
-  #        run: |
-  #          docker compose up
+          docker compose up
 
   release:
     needs: [unit-test, functional-test]
