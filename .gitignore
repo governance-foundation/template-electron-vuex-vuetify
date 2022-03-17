@@ -1,5 +1,5 @@
 #cypress
-.cache
+.cache/*
 /cypress/videos/
 /cypress/screenshots/
 /cypress/reports/
