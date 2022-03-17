@@ -8,14 +8,12 @@ services:
     working_dir: /build/source
     volumes:
       - ./:/build/source
+      - .cache:/build/.cache
     environment:
       - NODE_ENV=develop
       - PORT=8080
       - HOST=server
       - DEBUG=start-server-and-test
-      - CYPRESS_CACHE_FOLDER=/build/source/.cache
-      - ELECTRON_CACHE=/build/source/.cache/electron
-      - ELECTRON_BUILDER_CACHE=/build/source/.cache/electron-builder
     healthcheck:
       test: ["CMD", "curl", "-f", "http://server:8080"]
       interval: 3s
