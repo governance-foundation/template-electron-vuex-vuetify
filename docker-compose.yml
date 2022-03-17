@@ -9,6 +9,7 @@ services:
     volumes:
       - ./:/build/source
       - .cache:/build/.cache
+      - .config:/build/.config
     environment:
       - NODE_ENV=develop
       - PORT=8080
