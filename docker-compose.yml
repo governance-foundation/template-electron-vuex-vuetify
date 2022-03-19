@@ -16,7 +16,7 @@ services:
       - HOST=server
       - DEBUG=start-server-and-test
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://server:8080"]
+      test: ["CMD", "curl", "-f", "http://server:3000"]
       interval: 3s
       timeout: 5s
       retries: 5
