@@ -20,9 +20,10 @@ jobs:
           allowed_prefixes: "feature,stable,fix" # All branches should start with the given prefix
           ignore: master,develop # Ignore exactly matching branch names from convention
           min_length: 5 # Min length of the branch name
-          max_length: 20 # Max length of the branch name
+          max_length: 200 # Max length of the branch name
 
   unit-test:
+    if: ${{ always() && contains(needs.*.result, 'success') && !(contains(needs.*.result, 'failure')) }}
     needs: [branch-naming-rules]
     name: ${{ matrix.friendlyName }}
     runs-on: ${{ matrix.os }}
