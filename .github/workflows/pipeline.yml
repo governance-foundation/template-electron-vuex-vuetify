@@ -116,6 +116,12 @@ jobs:
         run: |
           docker compose up --exit-code-from server
 
+      - name: Deploy Reports to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: cypress/reports
+
   release:
     needs: [unit-test, functional-test]
     if: "!contains(github.event.head_commit.message, 'skip ci')"
