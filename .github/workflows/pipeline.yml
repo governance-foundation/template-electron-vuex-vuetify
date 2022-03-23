@@ -173,6 +173,7 @@ jobs:
         uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          gzip: false
           files: >
             dist_electron/*.exe
             dist_electron/*.exe.blockmap
@@ -183,6 +184,7 @@ jobs:
         uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          gzip: false
           files: >
             dist_electron/*.AppImage
             dist_electron/*.snap
@@ -193,6 +195,7 @@ jobs:
         uses: meeDamian/github-release@2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          gzip: false
           files: >
             dist_electron/*-mac.zip
             dist_electron/*.dmg
