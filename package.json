@@ -5,7 +5,7 @@
   "productAppId": "appId",
   "electronWindowTitle": "Electron App",
   "author": "Max Barrass <max.barrass@gmail.com>",
-  "version": "2022.2.22",
+  "version": "2022.3.24",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "test:unit": "vitest",
