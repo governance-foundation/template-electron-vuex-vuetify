@@ -162,6 +162,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: false
           generate_release_notes: true
           files: |
