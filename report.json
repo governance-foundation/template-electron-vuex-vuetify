@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-03-24T12:15:26.720Z",
-    "end": "2022-03-24T12:15:37.324Z",
-    "duration": 10530,
+    "start": "2022-04-20T11:44:10.768Z",
+    "end": "2022-04-20T11:44:24.292Z",
+    "duration": 13464,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ed0e394a-dd46-4203-8875-977b10366daa",
+      "uuid": "fef75f02-3db0-416a-82bc-49175f6ced95",
       "title": "",
       "fullFile": "cypress/integration/example.spec.ts",
       "file": "cypress/integration/example.spec.ts",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e2d40e83-d847-4be6-be58-25525a05075d",
+          "uuid": "bc02b30a-b60c-4358-960e-8a7c0dd81add",
           "title": "My First Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "visits the app root url",
               "fullTitle": "My First Test visits the app root url",
               "timedOut": null,
-              "duration": 10006,
+              "duration": 12469,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": "\"videos/example.spec.ts.mp4\"",
               "code": "cy.visit(\"/\");",
               "err": {},
-              "uuid": "e12d9e65-b82f-438f-ac56-1d19949cd826",
-              "parentUUID": "e2d40e83-d847-4be6-be58-25525a05075d",
+              "uuid": "1c9e38b8-16b3-48c3-ab4d-71ce929d0c8b",
+              "parentUUID": "bc02b30a-b60c-4358-960e-8a7c0dd81add",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "changes language",
               "fullTitle": "My First Test changes language",
               "timedOut": null,
-              "duration": 524,
+              "duration": 995,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": "\"videos/example.spec.ts.mp4\"",
               "code": "cy.get(\"select\").select(\"hi\");\ncy.contains(\"h1\", \"Vue3 + Vite + Vuetify इलेक्ट्रॉन ऐप में आपका स्वागत है।\");",
               "err": {},
-              "uuid": "63f63eed-b2a1-4930-957c-9bf728b460e4",
-              "parentUUID": "e2d40e83-d847-4be6-be58-25525a05075d",
+              "uuid": "74f314cc-8629-4571-b385-6672829f1187",
+              "parentUUID": "bc02b30a-b60c-4358-960e-8a7c0dd81add",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "e12d9e65-b82f-438f-ac56-1d19949cd826",
-            "63f63eed-b2a1-4930-957c-9bf728b460e4"
+            "1c9e38b8-16b3-48c3-ab4d-71ce929d0c8b",
+            "74f314cc-8629-4571-b385-6672829f1187"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 10530,
+          "duration": 13464,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
