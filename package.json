@@ -30,7 +30,7 @@
     "typecheck": "vue-tsc --noEmit && vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "cypress": "cypress run --config baseUrl=http://localhost:3000 || true",
     "test": "npm run report:clean && npm run cypress",
-    "report:clean": "rm -rf cypress/results cypress/screenshots cypress/reports || true",
+    "report:clean": "rm -rf cypress/results cypress/screenshots cypress/videos cypress/reports || true",
     "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/reports/report.json",
     "report:generate": "marge cypress/reports/report.json -f report -o cypress/reports",
     "report:moveScreenshots": "mv cypress/screenshots cypress/reports/screenshots 2>/dev/null || true",
